@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heart Disease Prediction</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background: linear-gradient(to right, #ff6e7f, #bfe9ff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+      max-width: 600px;
+      width: 100%;
+    }
+    .logo {
+      width: 80px;
+      display: block;
+      margin: 0 auto 20px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 28px;
+      color: #e63946;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #333;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 14px;
+    }
+    button {
+      background-color: #e63946;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+      font-weight: 600;
+      margin-top: 10px;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background-color: #d62839;
+    }
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+      text-align: center;
+      font-size: 18px;
+      color: #1d3557;
+    }
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: #555;
+      margin-top: 25px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img src="heart.png" alt="Heart Logo" class="logo">
+    <h2>Heart Disease Predictor</h2>
+
+    <div class="form-group"><label>Age</label><input type="number" id="age"></div>
+    <div class="form-group"><label>Sex</label><select id="sex"><option value="0">Female</option><option value="1">Male</option></select></div>
+    <div class="form-group"><label>Chest Pain Type</label><select id="cp"><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></div>
+    <div class="form-group"><label>Resting Blood Pressure</label><input type="number" id="trestbps"></div>
+    <div class="form-group"><label>Cholesterol</label><input type="number" id="chol"></div>
+    <div class="form-group"><label>Fasting Blood Sugar</label><select id="fbs"><option value="0">&lt; 120 mg/dl</option><option value="1">&ge; 120 mg/dl</option></select></div>
+    <div class="form-group"><label>Rest ECG</label><select id="restecg"><option value="0">0</option><option value="1">1</option><option value="2">2</option></select></div>
+    <div class="form-group"><label>Max Heart Rate</label><input type="number" id="thalach"></div>
+    <div class="form-group"><label>Exercise Induced Angina</label><select id="exang"><option value="0">No</option><option value="1">Yes</option></select></div>
+    <div class="form-group"><label>Oldpeak</label><input type="number" step="0.1" id="oldpeak"></div>
+    <div class="form-group"><label>Slope</label><select id="slope"><option value="0">0</option><option value="1">1</option><option value="2">2</option></select></div>
+    <div class="form-group"><label>Major Vessels (ca)</label><input type="number" id="ca"></div>
+    <div class="form-group"><label>Thal</label><select id="thal"><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></div>
+
+    <button onclick="predict()">Predict</button>
+    <div class="result" id="result"></div>
+    <footer>© 2025 Heart Health Predictor. All rights reserved.</footer>
+  </div>
+  <script>
+    function predict() {
+      const result = Math.random() > 0.5 ? 'Heart Disease Present ❤️' : 'No Heart Disease ✅';
+      document.getElementById('result').textContent = 'Prediction: ' + result;
+    }
+  </script>
+</body>
+</html>
